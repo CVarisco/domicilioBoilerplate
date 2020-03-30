@@ -46,7 +46,7 @@ export default class App extends Component {
                      class="m-5 bg-blue-500 inline-block hover:bg-blue-700 text-white font-bold px-2 py-1 rounded"
                      href="/form"
                   >
-                     Aggiungi un'attività
+                     ➕ Aggiungi un'attività
                   </Link>
                ) : (
                   <Link class="m-5 text-blue-500 hover:text-blue-800" href="/">
