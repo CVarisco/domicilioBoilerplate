@@ -1,13 +1,13 @@
 {
-   "gelaterie": {
+   "Gelaterie": {
       "icon": "🍦",
       "data": []
    },
-   "macellerie": {
+   "Macellerie": {
       "icon": "🥩",
       "data": []
    },
-   "generi alimentari": {
+   "Generi alimentari": {
       "icon": "🥬",
       "data": []
    },
@@ -19,11 +19,11 @@
       "icon": "🎣",
       "data": []
    },
-   "sushi": {
+   "Sushi": {
       "icon": "🍣",
       "data": []
    },
-   "pasta fresca e primi piatti": {
+   "Pasta fresca e primi piatti": {
       "icon": "🍝",
       "data": []
    },

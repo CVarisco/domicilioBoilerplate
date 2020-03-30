@@ -1,5 +1,5 @@
 import { Component, Fragment } from "preact";
-
+import test from "../../category-template.json";
 import { ListCategory } from "../components/listCategory";
 
 export default class Home extends Component {
@@ -31,7 +31,7 @@ export default class Home extends Component {
 
    render(props, { filter }) {
       const stores = this.filteredCategories(filter);
-
+      console.log(test);
       return (
          <Fragment>
             <div class="relative p-5 lg:max-w-5xl xl:max-w-6xl lg:m-auto pb-10">
@@ -41,6 +41,12 @@ export default class Home extends Component {
                   placeholder="Cerca attività"
                   onInput={this.handleChangeFilter}
                />
+               {Object.keys(test) &&
+                  Object.keys(test).map(key => (
+                     <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full">
+                        {key}
+                     </button>
+                  ))}
             </div>
             <div class="relative mb-10 font-sans text-md text-gray-800">
                {Object.keys(stores).length !== 0 ? (
