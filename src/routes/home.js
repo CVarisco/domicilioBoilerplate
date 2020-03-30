@@ -64,7 +64,7 @@ export default class Home extends Component {
                      {process.env.PREACT_APP_DEV_NAME}
                   </a>
                   <br />
-                  Grazie a{" "}
+                  Speciale ringraziamento a{" "}
                   <a class="text-orange-500" href="https://tomma5o.com/">
                      Tomma5o
                   </a>
