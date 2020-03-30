@@ -41,17 +41,18 @@ export default class App extends Component {
       return (
          <div id="app" class="px-5 max-w-screen-md mx-auto">
             <nav class="flex justify-center md:justify-end items-center">
-               {isHomepage ? null : (
+               {isHomepage ? (
+                  <Link
+                     class="m-5 bg-blue-500 inline-block hover:bg-blue-700 text-white font-bold px-2 py-1 rounded"
+                     href="/form"
+                  >
+                     Aggiungi un'attività
+                  </Link>
+               ) : (
                   <Link class="m-5 text-blue-500 hover:text-blue-800" href="/">
                      Ritorna alla ricerca
                   </Link>
                )}
-               <Link
-                  class="m-5 bg-blue-500 inline-block hover:bg-blue-700 text-white font-bold px-2 py-1 rounded"
-                  href="/form"
-               >
-                  Aggiungi un'attività
-               </Link>
             </nav>
             <h1 class="font-sans text-4xl md:text-5xl lg:text-5xl pt-10 text-gray-800 text-center">
                <span

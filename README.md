@@ -25,7 +25,7 @@ https://gist.githubusercontent.com/tomma5o/<hash>/raw/<removeThisHash>/FerraraDo
 
 ## Deploy
 
-The site is developed with some specific https://netlify.com apis.
+The site is developed with some specific https://netlify.com apis (Form API)
 And if you want to add analytics just put it in your netlify admin panel
 
 ## CLI Commands
