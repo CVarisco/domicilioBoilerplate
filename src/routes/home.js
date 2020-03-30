@@ -1,10 +1,10 @@
 import { Component, Fragment } from "preact";
-import test from "../../category-template.json";
 import { ListCategory } from "../components/listCategory";
 
 export default class Home extends Component {
    state = {
-      filter: ""
+      filter: "",
+      categoryFilter: null
    };
 
    handleChangeFilter = e => {
@@ -12,26 +12,51 @@ export default class Home extends Component {
       this.setState({ filter: text });
    };
 
-   filteredCategories(filter) {
+   handleCategoryFilter = key => e => {
+      if (key === this.state.categoryFilter) {
+         return this.setState({ categoryFilter: null });
+      }
+      this.setState({ categoryFilter: key });
+   };
+
+   filteredCategories(filter, categoryFilter) {
       const { results } = this.props;
       const regex = new RegExp(`${filter}`, "i");
 
-      return Object.keys(results).reduce((acc, key) => {
-         return {
-            ...acc,
-            [key]: {
-               icon: results[key].icon,
-               data: results[key].data.filter(e =>
-                  filter.length ? regex.test(e.name) : true
-               )
-            }
-         };
-      }, {});
+      return Object.keys(results)
+         .filter(key => (categoryFilter ? categoryFilter === key : true))
+         .reduce((acc, key) => {
+            return {
+               ...acc,
+               [key]: {
+                  icon: results[key].icon,
+                  data: results[key].data.filter(e =>
+                     filter.length ? regex.test(e.name) : true
+                  )
+               }
+            };
+         }, {});
    }
 
-   render(props, { filter }) {
-      const stores = this.filteredCategories(filter);
-      console.log(test);
+   renderEmptyState = () => (
+      <div class="relative mt-10 mb-10 font-sans text-md text-gray-800">
+         <p class="text-center">
+            Non ci sono attività,{" "}
+            <strong>
+               clicca sul tasto in alto a destra per aggiungerne una!
+            </strong>
+         </p>
+      </div>
+   );
+
+   render(props, { filter, categoryFilter }) {
+      const { results: stores } = this.props;
+      const filteredStores = this.filteredCategories(filter, categoryFilter);
+
+      if (Object.keys(stores).length <= 0) {
+         return this.renderEmptyState();
+      }
+
       return (
          <Fragment>
             <div class="relative p-5 lg:max-w-5xl xl:max-w-6xl lg:m-auto pb-10">
@@ -41,48 +66,31 @@ export default class Home extends Component {
                   placeholder="Cerca attività"
                   onInput={this.handleChangeFilter}
                />
-               {Object.keys(test) &&
-                  Object.keys(test).map(key => (
-                     <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full">
-                        {key}
+               <div class="relative text-center mt-2 p-1">
+                  {Object.keys(stores).map(key => (
+                     <button
+                        onClick={this.handleCategoryFilter(key)}
+                        class={`m-1 items-center border border-blue-500 py-2 px-4 rounded-full ${
+                           key === categoryFilter
+                              ? "bg-blue-500 hover:bg-blue-500 hover:text-blue-500 text-white"
+                              : "bg-white hover:bg-blue-500 hover:text-white"
+                        }`}
+                     >
+                        {`${stores[key].icon} ${key}`}
                      </button>
                   ))}
+               </div>
             </div>
             <div class="relative mb-10 font-sans text-md text-gray-800">
-               {Object.keys(stores).length !== 0 ? (
-                  Object.keys(stores)
-                     .filter(key => stores[key].data.length)
-                     .map(key => (
-                        <ListCategory
-                           name={key}
-                           category={stores[key]}
-                           filter={filter}
-                        />
-                     ))
-               ) : (
-                  <p class="text-center">
-                     Non ci sono attività,{" "}
-                     <strong>
-                        clicca sul tasto in alto a destra per aggiungerne una!
-                     </strong>
-                  </p>
-               )}
-            </div>
-            <div>
-               <p class="mb-5 mt-5 text-center">
-                  Developed with ❤️ by{" "}
-                  <a
-                     class="text-orange-500"
-                     href={process.env.PREACT_APP_DEV_LINK}
-                  >
-                     {process.env.PREACT_APP_DEV_NAME}
-                  </a>
-                  <br />
-                  Speciale ringraziamento a{" "}
-                  <a class="text-orange-500" href="https://tomma5o.com/">
-                     Tomma5o
-                  </a>
-               </p>
+               {Object.keys(filteredStores)
+                  .filter(key => filteredStores[key].data.length)
+                  .map(key => (
+                     <ListCategory
+                        name={key}
+                        category={filteredStores[key]}
+                        filter={filter}
+                     />
+                  ))}
             </div>
          </Fragment>
       );

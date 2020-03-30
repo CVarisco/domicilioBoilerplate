@@ -65,9 +65,25 @@ export default class App extends Component {
                {` ${process.env.PREACT_APP_CITY} a Domicilio`}
             </h1>
             <Router onChange={this.handleRoute}>
-               <Home path="/" results={results} />
+               <Home path="/" results={mock} />
                <Form path="/form" />
             </Router>
+            <div>
+               <p class="mb-5 mt-5 text-center">
+                  Developed with ❤️ by{" "}
+                  <a
+                     class="text-orange-500"
+                     href={process.env.PREACT_APP_DEV_LINK}
+                  >
+                     {process.env.PREACT_APP_DEV_NAME}
+                  </a>
+                  <br />
+                  Speciale ringraziamento a{" "}
+                  <a class="text-orange-500" href="https://tomma5o.com/">
+                     Tomma5o
+                  </a>
+               </p>
+            </div>
          </div>
       );
    }
