@@ -53,7 +53,7 @@ export default class App extends Component {
                   Aggiungi un'attività
                </Link>
             </nav>
-            <h1 class="font-sans text-4xl md:text-5xl lg:text-6xl pt-10 text-gray-800 text-center capitalize">
+            <h1 class="font-sans text-4xl md:text-5xl lg:text-5xl pt-10 text-gray-800 text-center">
                <span
                   class="block sm:inline-block"
                   role="img"
@@ -61,7 +61,7 @@ export default class App extends Component {
                >
                   🚴
                </span>
-               {`${process.env.PREACT_APP_CITY} a Domicilio`}
+               {` ${process.env.PREACT_APP_CITY} a Domicilio`}
             </h1>
             <Router onChange={this.handleRoute}>
                <Home path="/" results={results} />
