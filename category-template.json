@@ -1,0 +1,66 @@
+{
+   "gelaterie": {
+      "icon": "🍦",
+      "data": []
+   },
+   "macellerie": {
+      "icon": "🥩",
+      "data": []
+   },
+   "generi alimentari": {
+      "icon": "🥬",
+      "data": []
+   },
+   "Ristorazione": {
+      "icon": "🍽️",
+      "data": []
+   },
+   "Pesce fresco": {
+      "icon": "🎣",
+      "data": []
+   },
+   "sushi": {
+      "icon": "🍣",
+      "data": []
+   },
+   "pasta fresca e primi piatti": {
+      "icon": "🍝",
+      "data": []
+   },
+   "Enoteca e Birre": {
+      "icon": "🍾",
+      "data": []
+   },
+   "Frutta fresca": {
+      "icon": "🍎",
+      "data": []
+   },
+   "Supermercati": {
+      "icon": "🛒",
+      "data": []
+   },
+   "Pasticceria": {
+      "icon": "🍩",
+      "data": []
+   },
+   "Pizzerie": {
+      "icon": "🍕",
+      "data": []
+   },
+   "Lavenderie": {
+      "icon": "👔",
+      "data": []
+   },
+   "Informatica": {
+      "icon": "👨‍💻",
+      "data": []
+   },
+   "Prodotti per animali": {
+      "icon": "🐶",
+      "data": []
+   },
+   "Salute": {
+      "icon": "👩‍⚕️",
+      "data": []
+   }
+}

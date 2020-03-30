@@ -43,7 +43,7 @@ export default class Home extends Component {
                />
             </div>
             <div class="relative mb-10 font-sans text-md text-gray-800">
-               {Object.keys(stores) &&
+               {Object.keys(stores).length !== 0 ? (
                   Object.keys(stores)
                      .filter(key => stores[key].data.length)
                      .map(key => (
@@ -52,10 +52,18 @@ export default class Home extends Component {
                            category={stores[key]}
                            filter={filter}
                         />
-                     ))}
+                     ))
+               ) : (
+                  <p class="text-center">
+                     Non ci sono attività,{" "}
+                     <strong>
+                        clicca sul tasto in alto a destra per aggiungerne una!
+                     </strong>
+                  </p>
+               )}
             </div>
             <div>
-               <p class="mb-5 text-center">
+               <p class="mb-5 mt-5 text-center">
                   Developed with ❤️ by{" "}
                   <a
                      class="text-orange-500"
