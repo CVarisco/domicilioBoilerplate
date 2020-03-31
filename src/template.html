@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+	<meta charset="utf-8">
+	<title>Paderno Dugnano a Domicilio</title>
+	<meta name="description" content="Tutte le aziende che effettuano consegne a domicilio a Paderno Dugnano">
+	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+	<link rel="manifest" href="/manifest.json">
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+	<meta name="mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta property="og:url" content="https://padernodugnanodomicilio.it">
+	<meta property="og:type" content="website">
+	<meta property="og:title" content="Paderno Dugnano a Domicilio">
+	<meta property="og:description" content="Tutte le aziende che effettuano consegne a domicilio a Paderno Dugnano">
+	<meta property="og:image" content="/assets/logo-1024.png">
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-59817138-4"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag() { dataLayer.push(arguments); }
+		gtag('js', new Date());
+
+		gtag('config', 'UA-59817138-4');
+	</script>
+
+	<% preact.headEnd %>
+</head>
+
+<body>
+	<% preact.bodyEnd %>
+
+	<script>
+		if ('serviceWorker' in navigator) {
+			console.log("Will the service worker register?");
+			navigator.serviceWorker.register('sw.js')
+				.then(function (reg) {
+					console.log("Yes, it did.");
+				}).catch(function (err) {
+					console.log("No it didn't. This happened:", err)
+				});
+		}
+	</script>
+</body>
+
+</html>
