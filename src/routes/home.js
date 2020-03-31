@@ -67,18 +67,20 @@ export default class Home extends Component {
                   onInput={this.handleChangeFilter}
                />
                <div class="relative text-center mt-2 p-1">
-                  {Object.keys(stores).map(key => (
-                     <button
-                        onClick={this.handleCategoryFilter(key)}
-                        class={`m-1 items-center border border-blue-500 py-2 px-4 rounded-full ${
-                           key === categoryFilter
-                              ? "bg-blue-500 hover:bg-blue-500 text-white outline-none text-white"
-                              : "bg-white hover:bg-blue-500 hover:text-white"
-                        }`}
-                     >
-                        {`${stores[key].icon} ${key}`}
-                     </button>
-                  ))}
+                  {Object.keys(stores)
+                     .sort()
+                     .map(key => (
+                        <button
+                           onClick={this.handleCategoryFilter(key)}
+                           class={`m-1 items-center border border-blue-500 py-2 px-4 rounded-full ${
+                              key === categoryFilter
+                                 ? "bg-blue-500 hover:bg-blue-500 text-white outline-none text-white"
+                                 : "bg-white hover:bg-blue-500 hover:text-white"
+                           }`}
+                        >
+                           {`${stores[key].icon} ${key}`}
+                        </button>
+                     ))}
                </div>
             </div>
             <div class="relative mb-10 font-sans text-md text-gray-800">
