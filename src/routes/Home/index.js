@@ -1,6 +1,6 @@
 import { Component } from "preact";
 
-import PhoneNumbersModal from "../../components/PhoneNumbersModal.js";
+import PhoneNumbersModal from "./PhoneNumbersModal.js";
 import CategoryList from "./CategoryList.js";
 import { Action } from "./context.js";
 

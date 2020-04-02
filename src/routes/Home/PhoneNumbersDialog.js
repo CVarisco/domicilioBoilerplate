@@ -1,4 +1,4 @@
-import Modal from "./Modal";
+import Modal from "../../components/Modal";
 
 const PhoneNumbersModal = ({ isOpen, telNumbers, closePopup }) => {
    return (
