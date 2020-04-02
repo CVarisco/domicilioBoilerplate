@@ -1,4 +1,4 @@
-import { Dialog } from "../../components/Dialog";
+import { Dialog } from "./Dialog";
 
 export const PhoneNumbersDialog = ({ isOpen, telNumbers, closePopup }) => {
    return (
