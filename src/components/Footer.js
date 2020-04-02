@@ -4,7 +4,7 @@ import PrivacyPolicy from "./PrivacyPolicy";
 
 export default class Footer extends Component {
    state = {
-      isPrivacyModalOpen: true
+      isPrivacyModalOpen: false
    };
 
    toggleModal = modalName => () => {
