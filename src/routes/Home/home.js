@@ -2,7 +2,7 @@ import { Component } from "preact";
 
 import PhoneNumbersModal from "./PhoneNumbersModal.js";
 import CategoryList from "./CategoryList.js";
-import { Action } from "./context.js";
+import { Action } from "./Context.js";
 
 export default class Home extends Component {
    state = {
