@@ -1,6 +1,6 @@
 import { Component } from "preact";
 
-import PhoneNumbersDialog from "../../components/PhoneNumbersDialog.js";
+import PhoneNumbersModal from "../../components/PhoneNumbersModal.js";
 import CategoryList from "./CategoryList.js";
 import { Action } from "./context.js";
 
@@ -114,7 +114,7 @@ export default class Home extends Component {
                      />
                   ))}
             </div>
-            <PhoneNumbersDialog
+            <PhoneNumbersModal
                isOpen={isPopupOpen}
                closePopup={this.closePopup}
                telNumbers={popupNumbers}

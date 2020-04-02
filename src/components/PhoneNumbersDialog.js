@@ -1,8 +1,8 @@
-import Dialog from "./Dialog";
+import Modal from "./Modal";
 
-const PhoneNumbersDialog = ({ isOpen, telNumbers, closePopup }) => {
+const PhoneNumbersModal = ({ isOpen, telNumbers, closePopup }) => {
    return (
-      <Dialog isOpen={isOpen} closePopup={closePopup}>
+      <Modal isOpen={isOpen} closePopup={closePopup}>
          {telNumbers.map(tel => (
             <a
                href={`tel:${tel}`}
@@ -26,8 +26,8 @@ const PhoneNumbersDialog = ({ isOpen, telNumbers, closePopup }) => {
                Chiudi
             </button>
          </div>
-      </Dialog>
+      </Modal>
    );
 };
 
-export default PhoneNumbersDialog;
+export default PhoneNumbersModal;

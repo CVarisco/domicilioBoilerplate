@@ -1,5 +1,5 @@
 import { Component } from "preact";
-import Dialog from "./Dialog";
+import Modal from "./Modal";
 import PrivacyPolicy from "./PrivacyPolicy";
 
 export default class Footer extends Component {
@@ -50,12 +50,12 @@ export default class Footer extends Component {
             >
                Privacy Policy
             </p>
-            <Dialog
+            <Modal
                isOpen={isPrivacyModalOpen}
                closePopup={this.toggleModal("isPrivacyModalOpen")}
             >
                <PrivacyPolicy />
-            </Dialog>
+            </Modal>
          </div>
       );
    }
