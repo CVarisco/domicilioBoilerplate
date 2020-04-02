@@ -1,7 +1,7 @@
 import { useState, useContext } from "preact/hooks";
 
 // Actions
-import { Action } from "./context.js";
+import { Action } from "./Context.js";
 
 const ListItem = ({ name, tel, site, mail, note }) => {
    const [infoVisible, setInfoVisible] = useState(false);
