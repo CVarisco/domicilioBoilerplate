@@ -1,9 +1,9 @@
 import { useState, useContext } from "preact/hooks";
 
 // Actions
-import { Action } from "../index";
+import { Action } from "./Context.js";
 
-export const ListItem = ({ name, tel, site, mail, note }) => {
+const ListItem = ({ name, tel, site, mail, note }) => {
    const [infoVisible, setInfoVisible] = useState(false);
    const action = useContext(Action);
    const encodedName = encodeURIComponent(name);
@@ -90,3 +90,20 @@ export const ListItem = ({ name, tel, site, mail, note }) => {
       </div>
    );
 };
+
+const CategoryList = ({ name = "", category = {} }) => {
+   return (
+      <div id={name.replace(" ", "_")} className="relative py-5">
+         <p className="text-3xl md:text-4xl capitalize">
+            {category.icon} {name}
+         </p>
+         <div>
+            {category.data.map(props => (
+               <ListItem key={props.tel} {...props} />
+            ))}
+         </div>
+      </div>
+   );
+};
+
+export default CategoryList;

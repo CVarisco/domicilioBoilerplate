@@ -1,10 +1,30 @@
-import { Component, Fragment } from "preact";
-import { ListCategory } from "../components/listCategory";
+import { Component } from "preact";
+
+import PhoneNumbersModal from "./PhoneNumbersModal.js";
+import CategoryList from "./CategoryList.js";
+import { Action } from "./Context.js";
 
 export default class Home extends Component {
    state = {
       filter: "",
-      categoryFilter: null
+      categoryFilter: null,
+      isPopupOpen: false,
+      popupNumbers: []
+   };
+
+   setPopupNumbers = (e, numberArray) => {
+      e.preventDefault();
+
+      this.setState({
+         popupNumbers: numberArray,
+         isPopupOpen: true
+      });
+   };
+
+   closePopup = e => {
+      if (e.currentTarget === e.target) {
+         this.setState({ isPopupOpen: false });
+      }
    };
 
    handleChangeFilter = e => {
@@ -12,7 +32,7 @@ export default class Home extends Component {
       this.setState({ filter: text });
    };
 
-   handleCategoryFilter = key => e => {
+   handleCategoryFilter = key => () => {
       if (key === this.state.categoryFilter) {
          return this.setState({ categoryFilter: null });
       }
@@ -49,7 +69,7 @@ export default class Home extends Component {
       </div>
    );
 
-   render(props, { filter, categoryFilter }) {
+   render(props, { filter, categoryFilter, popupNumbers, isPopupOpen }) {
       const { results: stores } = this.props;
       const filteredStores = this.filteredCategories(filter, categoryFilter);
 
@@ -58,7 +78,7 @@ export default class Home extends Component {
       }
 
       return (
-         <Fragment>
+         <Action.Provider value={{ setPopupNumbers: this.setPopupNumbers }}>
             <div class="relative p-5 lg:max-w-5xl xl:max-w-6xl lg:m-auto pb-10">
                <input
                   class="bg-white focus:outline-none focus:shadow-outline border border-gray-500 rounded-lg py-2 px-4 block w-full appearance-none leading-normal"
@@ -87,14 +107,19 @@ export default class Home extends Component {
                {Object.keys(filteredStores)
                   .filter(key => filteredStores[key].data.length)
                   .map(key => (
-                     <ListCategory
+                     <CategoryList
                         name={key}
                         category={filteredStores[key]}
                         filter={filter}
                      />
                   ))}
             </div>
-         </Fragment>
+            <PhoneNumbersModal
+               isOpen={isPopupOpen}
+               closePopup={this.closePopup}
+               telNumbers={popupNumbers}
+            />
+         </Action.Provider>
       );
    }
 }
