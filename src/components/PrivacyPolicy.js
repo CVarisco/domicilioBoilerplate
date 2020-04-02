@@ -1,4 +1,4 @@
-const PrivacyPolicy = () => (
+export const PrivacyPolicy = () => (
    <div class="leading-7">
       <h1 class="text-2xl mb-2">
          Informativa sul trattamento dei dati personali

@@ -1,6 +1,6 @@
-import Dialog from "../../components/Dialog.js";
+import { Dialog } from "../../components/Dialog.js";
 
-const PhoneNumbersDialog = ({ isOpen, telNumbers, closePopup }) => {
+export const PhoneNumbersDialog = ({ isOpen, telNumbers, closePopup }) => {
    return (
       <Dialog isOpen={isOpen} closePopup={closePopup}>
          {telNumbers.map(tel => (
@@ -29,5 +29,3 @@ const PhoneNumbersDialog = ({ isOpen, telNumbers, closePopup }) => {
       </Dialog>
    );
 };
-
-export default PhoneNumbersDialog;
