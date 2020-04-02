@@ -1,4 +1,4 @@
-export const Dialog = ({ isOpen, children, closePopup }) => {
+const Dialog = ({ isOpen, children, closePopup }) => {
    return (
       <dialog
          class="fixed inset-x-0 top-0 w-screen h-screen"
@@ -22,3 +22,5 @@ export const Dialog = ({ isOpen, children, closePopup }) => {
       </dialog>
    );
 };
+
+export default Dialog;

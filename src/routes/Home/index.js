@@ -1,6 +1,6 @@
 import { Component } from "preact";
 
-import { PhoneNumbersDialog } from "../../components/PhoneNumbersDialog.js";
+import PhoneNumbersDialog from "../../components/PhoneNumbersDialog.js";
 import CategoryList from "./CategoryList.js";
 import { Action } from "./context.js";
 

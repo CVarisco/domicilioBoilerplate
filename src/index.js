@@ -7,7 +7,7 @@ import "tailwindcss/dist/tailwind.min.css";
 import Home from "./routes/Home/index.js";
 import Form from "./routes/Form/index.js";
 
-import { Navbar } from "./components/Navbar.js";
+import Navbar from "./components/Navbar.js";
 import Footer from "./components/Footer.js";
 
 // Constants

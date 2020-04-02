@@ -1,6 +1,6 @@
 import { Link } from "preact-router/match";
 
-export const Navbar = ({ isHomepage }) => (
+const Navbar = ({ isHomepage }) => (
    <nav class="flex justify-center md:justify-end items-center">
       {isHomepage ? (
          <Link
@@ -16,3 +16,5 @@ export const Navbar = ({ isHomepage }) => (
       )}
    </nav>
 );
+
+export default Navbar;

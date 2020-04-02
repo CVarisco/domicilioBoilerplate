@@ -1,6 +1,6 @@
 import { Component } from "preact";
-import { Dialog } from "./Dialog";
-import { PrivacyPolicy } from "./PrivacyPolicy";
+import Dialog from "./Dialog";
+import PrivacyPolicy from "./PrivacyPolicy";
 
 export default class Footer extends Component {
    state = {
