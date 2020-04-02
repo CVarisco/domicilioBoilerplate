@@ -4,8 +4,8 @@ import { Router } from "preact-router";
 import "tailwindcss/dist/tailwind.min.css";
 
 // Routes
-import Home from "./routes/Home";
-import Form from "./routes/Form";
+import Home from "./routes/Home/index.js";
+import Form from "./routes/Form/index.js";
 
 import { Navbar } from "./components/Navbar.js";
 import Footer from "./components/Footer.js";
