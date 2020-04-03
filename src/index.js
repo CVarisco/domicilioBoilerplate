@@ -10,16 +10,13 @@ import Form from "./routes/Form/index.js";
 import Navbar from "./components/Navbar.js";
 import Footer from "./components/Footer.js";
 
-// Constants
-const SEARCH = process.env.PREACT_APP_DATA_SOURCE;
-
 export default class App extends Component {
    state = {
       results: {},
-      isHomepage: true
+      isHomepage: true,
    };
 
-   handleRoute = e => {
+   handleRoute = (e) => {
       this.currentUrl = e.url;
       this.setState({ isHomepage: e.url === "/" });
    };
@@ -29,27 +26,23 @@ export default class App extends Component {
 
       this.setState({
          popupNumbers: numberArray,
-         isPopupOpen: true
+         isPopupOpen: true,
       });
    };
 
-   closePopup = e => {
+   closePopup = (e) => {
       if (e.currentTarget === e.target) {
          this.setState({ isPopupOpen: false });
       }
    };
 
    componentDidMount() {
-      fetch(
-         `${SEARCH}?q=${Math.random()
-            .toString(36)
-            .split(".")}`
-      )
-         .then(r => r.json())
-         .then(json => {
+      fetch(`${process.env.PREACT_APP_DATA_SOURCE}`)
+         .then((r) => r.json())
+         .then((json) => {
             this.setState({
                results: json,
-               resultBkp: json
+               resultBkp: json,
             });
          });
    }

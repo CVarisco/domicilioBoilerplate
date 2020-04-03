@@ -1,19 +1,21 @@
 import { Component } from "preact";
 import Modal from "./Modal";
 import PrivacyPolicy from "./PrivacyPolicy";
+import LegalNotes from "./LegalNotes";
 
 export default class Footer extends Component {
    state = {
-      isPrivacyModalOpen: false
+      isPrivacyModalOpen: false,
+      isLegalNotesModalOpen: false,
    };
 
-   toggleModal = modalName => () => {
+   toggleModal = (modalName) => () => {
       this.setState({ [modalName]: !this.state[modalName] });
    };
 
-   render(props, { isPrivacyModalOpen }) {
+   render(props, { isPrivacyModalOpen, isLegalNotesModalOpen }) {
       return (
-         <div>
+         <div class="my-16">
             <p class="mb-5 mt-5 text-center">
                Developed with ❤️ by{" "}
                <a
@@ -44,17 +46,32 @@ export default class Footer extends Component {
                Se vuoi crearlo per la tua città visita la pagina GitHub del
                progetto
             </a>
-            <p
-               onClick={this.toggleModal("isPrivacyModalOpen")}
-               class="mb-5 text-xs block text-blue-500 hover:underline text-center cursor-pointer"
-            >
-               Privacy Policy
-            </p>
+            <div class="flex mb-5 justify-center items-center">
+               <p
+                  onClick={this.toggleModal("isPrivacyModalOpen")}
+                  class="text-xs block text-blue-500 hover:underline text-center cursor-pointer"
+               >
+                  Privacy Policy
+               </p>
+               <span class="mr-3 ml-3 text-blue-500"> | </span>
+               <p
+                  onClick={this.toggleModal("isLegalNotesModalOpen")}
+                  class="text-xs block text-blue-500 hover:underline text-center cursor-pointer"
+               >
+                  Note Legali
+               </p>
+            </div>
             <Modal
                isOpen={isPrivacyModalOpen}
                closePopup={this.toggleModal("isPrivacyModalOpen")}
             >
                <PrivacyPolicy />
+            </Modal>
+            <Modal
+               isOpen={isLegalNotesModalOpen}
+               closePopup={this.toggleModal("isLegalNotesModalOpen")}
+            >
+               <LegalNotes />
             </Modal>
          </div>
       );

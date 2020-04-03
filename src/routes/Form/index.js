@@ -66,6 +66,10 @@ export default function Form() {
                   />
                </label>
             </p>
+            <span class="mb-5 text-s block text-gray-700 text-center">
+               Cliccando su "Invia" dichiari di aver letto e accettato le Note
+               Legali e la Privacy Policy
+            </span>
             <p class="my-5">
                <button
                   class="block w-full bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded"
