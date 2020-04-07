@@ -9,7 +9,7 @@ export default class Home extends Component {
       filter: "",
       categoryFilter: null,
       isPopupOpen: false,
-      popupNumbers: []
+      popupNumbers: [],
    };
 
    setPopupNumbers = (e, numberArray) => {
@@ -17,22 +17,22 @@ export default class Home extends Component {
 
       this.setState({
          popupNumbers: numberArray,
-         isPopupOpen: true
+         isPopupOpen: true,
       });
    };
 
-   closePopup = e => {
+   closePopup = (e) => {
       if (e.currentTarget === e.target) {
          this.setState({ isPopupOpen: false });
       }
    };
 
-   handleChangeFilter = e => {
+   handleChangeFilter = (e) => {
       const text = e.target.value;
       this.setState({ filter: text });
    };
 
-   handleCategoryFilter = key => () => {
+   handleCategoryFilter = (key) => () => {
       if (key === this.state.categoryFilter) {
          return this.setState({ categoryFilter: null });
       }
@@ -44,16 +44,16 @@ export default class Home extends Component {
       const regex = new RegExp(`${filter}`, "i");
 
       return Object.keys(results)
-         .filter(key => (categoryFilter ? categoryFilter === key : true))
+         .filter((key) => (categoryFilter ? categoryFilter === key : true))
          .reduce((acc, key) => {
             return {
                ...acc,
                [key]: {
                   icon: results[key].icon,
-                  data: results[key].data.filter(e =>
+                  data: results[key].data.filter((e) =>
                      filter.length ? regex.test(e.name) : true
-                  )
-               }
+                  ),
+               },
             };
          }, {});
    }
@@ -86,16 +86,16 @@ export default class Home extends Component {
                   placeholder="Cerca attività"
                   onInput={this.handleChangeFilter}
                />
-               <div class="relative text-center mt-2 p-1">
+               <div class="relative flex md:block overflow-x-scroll text-center mt-2 p-1">
                   {Object.keys(stores)
                      .sort()
-                     .map(key => (
+                     .map((key) => (
                         <button
                            onClick={this.handleCategoryFilter(key)}
                            class={`m-1 items-center border border-blue-500 py-2 px-4 rounded-full ${
                               key === categoryFilter
-                                 ? "bg-blue-500 hover:bg-blue-500 text-white outline-none text-white"
-                                 : "bg-white hover:bg-blue-500 hover:text-white"
+                                 ? "flex-grow-0 flex-shrink-0 items-center bg-blue-500 hover:bg-blue-500 text-white outline-none text-white"
+                                 : "flex-grow-0 flex-shrink-0 items-center bg-white hover:bg-blue-500 hover:text-white"
                            }`}
                         >
                            {`${stores[key].icon} ${key}`}
@@ -105,8 +105,8 @@ export default class Home extends Component {
             </div>
             <div class="relative mb-10 font-sans text-md text-gray-800">
                {Object.keys(filteredStores)
-                  .filter(key => filteredStores[key].data.length)
-                  .map(key => (
+                  .filter((key) => filteredStores[key].data.length)
+                  .map((key) => (
                      <CategoryList
                         name={key}
                         category={filteredStores[key]}
