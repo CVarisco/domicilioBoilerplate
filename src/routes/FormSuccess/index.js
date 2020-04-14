@@ -7,8 +7,8 @@ export default function FormSuccess() {
             approvazione richiede 24 ore.
             <br />
             Non dimenticare di condividere con i tuoi amici quest'app per fare
-            in modo che tutte le piccole attività e non, in provincia di
-            Ferrara, siano presenti!
+            in modo che tutte le piccole attività e non, a Paderno Dugnano,
+            siano presenti!
          </p>
          <span class="text-5xl" aria-label="thanks icons">
             🙏
