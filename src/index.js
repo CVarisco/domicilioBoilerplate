@@ -6,6 +6,7 @@ import "tailwindcss/dist/tailwind.min.css";
 // Routes
 import Home from "./routes/Home/home.js";
 import Form from "./routes/Form/index.js";
+import FormSuccess from "./routes/FormSuccess/index.js";
 
 import Navbar from "./components/Navbar.js";
 import Footer from "./components/Footer.js";
@@ -65,6 +66,7 @@ export default class App extends Component {
                <Router onChange={this.handleRoute}>
                   <Home path="/" results={results} />
                   <Form path="/form" />
+                  <FormSuccess path="/form/success" />
                </Router>
             </div>
             <Footer />
